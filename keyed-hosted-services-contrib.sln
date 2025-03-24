@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99418B91-D9F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting", "src\KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.csproj", "{400AEB35-423F-46F6-86D6-50DEE5E5484B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{63300B6A-C5CA-4169-92FE-4942B8A3C410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.UnitTests", "..\tests\KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.UnitTests\KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.UnitTests.csproj", "{2FF30C2C-729F-4A4F-9E50-0248A63361BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +21,16 @@ Global
 		{400AEB35-423F-46F6-86D6-50DEE5E5484B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400AEB35-423F-46F6-86D6-50DEE5E5484B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400AEB35-423F-46F6-86D6-50DEE5E5484B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF30C2C-729F-4A4F-9E50-0248A63361BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF30C2C-729F-4A4F-9E50-0248A63361BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF30C2C-729F-4A4F-9E50-0248A63361BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF30C2C-729F-4A4F-9E50-0248A63361BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{400AEB35-423F-46F6-86D6-50DEE5E5484B} = {99418B91-D9FC-452A-815E-37F8C171AB19}
+		{2FF30C2C-729F-4A4F-9E50-0248A63361BC} = {63300B6A-C5CA-4169-92FE-4942B8A3C410}
 	EndGlobalSection
 EndGlobal

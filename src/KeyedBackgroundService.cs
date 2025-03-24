@@ -5,5 +5,8 @@
 /// </summary>
 public abstract class KeyedBackgroundService(object key) : BackgroundService, IKeyedHostedService
 {
+    /// <summary>
+    /// Gets the key associated with this service.
+    /// </summary>
     protected object Key { get; } = key;
 }
