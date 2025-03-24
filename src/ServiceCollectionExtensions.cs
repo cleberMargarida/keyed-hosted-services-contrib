@@ -16,13 +16,30 @@ public static class ServiceCollectionExtensions
     /// <param name="serviceKey">The <see cref="ServiceDescriptor.ServiceKey"/> of the service.</param>
     /// <returns>The original <see cref="IServiceCollection"/>.</returns>
     public static IServiceCollection AddKeyedHostedService<TKeyedHostedService>(this IServiceCollection services, object serviceKey)
-        where TKeyedHostedService : IKeyedHostedService
+        where TKeyedHostedService : class, IKeyedHostedService
     {
         services.AddKeyedSingleton<IKeyedHostedService>(serviceKey,
             static (serviceProvider, key) => ActivatorUtilities.CreateInstance<TKeyedHostedService>(serviceProvider, key));
 
         return AddKeyedHostedServiceInternal(services);
     }
+
+    /// <summary>
+    /// Add an keyed <see cref="IKeyedHostedService"/> registration for the given type.
+    /// </summary>
+    /// <typeparam name="TKeyedHostedService">An <see cref="IKeyedHostedService"/> to register.</typeparam>
+    /// <param name="services">The <see cref="IServiceCollection"/> to register with.</param>
+    /// <param name="serviceKey">The <see cref="ServiceDescriptor.ServiceKey"/> of the service.</param>
+    /// <param name="implementationFactory">The factory that creates the service.</param>
+    /// <returns>The original <see cref="IServiceCollection"/>.</returns>
+    public static IServiceCollection AddKeyedHostedService<TKeyedHostedService>(this IServiceCollection services, object serviceKey, Func<IServiceProvider, object, TKeyedHostedService> implementationFactory) 
+        where TKeyedHostedService : class, IKeyedHostedService
+    {
+        services.AddKeyedSingleton<IKeyedHostedService>(serviceKey, implementationFactory);
+
+        return AddKeyedHostedServiceInternal(services);
+    }
+
 
     private static IServiceCollection AddKeyedHostedServiceInternal(IServiceCollection services) => services.AddHostedService(
         serviceProvider => ActivatorUtilities.CreateInstance<KeyedBackgroundServiceManager>(serviceProvider,
