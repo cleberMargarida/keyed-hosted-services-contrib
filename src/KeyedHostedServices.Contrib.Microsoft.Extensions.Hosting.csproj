@@ -16,7 +16,6 @@
 		<PackageTags>hosting;extensions;keyed;services;hosted keyed services</PackageTags>
 		<RepositoryUrl>https://github.com/cleberMargarida/keyedHostedServices-contrib</RepositoryUrl>
 		<DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
-		<PackageReadmeFile>../README.md</PackageReadmeFile>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 
