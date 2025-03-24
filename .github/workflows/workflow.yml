@@ -76,7 +76,7 @@ jobs:
       - name: Pack NuGet package
         run: |
              dotnet restore
-             dotnet pack src/Sculptor.Core/Sculptor.Core.csproj -c Release -p:Version=${{ steps.get_version.outputs.version }} --no-restore
+             dotnet pack src/KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting/KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.csproj -c Release -p:Version=${{ steps.get_version.outputs.version }} --no-restore
 
       - name: Find and push NuGet package
         run: |
