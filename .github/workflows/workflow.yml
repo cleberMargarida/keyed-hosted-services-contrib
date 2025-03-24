@@ -67,16 +67,16 @@ jobs:
         run: dotnet tool install --global nbgv
 
       - name: Restore Nerdbank.GitVersioning Version Info
-        run: nbgv get-version --format json > version.json
-
+        run: nbgv get-version --format json > src/version.json  # <-- Output to src/
+    
       - name: Extract Version Number
         id: get_version
-        run: echo "##[set-output name=version;]$(jq -r '.CloudBuildVersionVars.NuGetPackageVersion' version.json)"
-
+        run: echo "VERSION=$(jq -r '.CloudBuildVersionVars.NuGetPackageVersion' src/version.json)" >> $GITHUB_OUTPUT
+      
       - name: Pack NuGet package
         run: |
-             dotnet restore
-             dotnet pack src/KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.csproj -c Release -p:Version=${{ steps.get_version.outputs.version }} --no-restore
+          dotnet restore
+          dotnet pack src/KeyedHostedServices.Contrib.Microsoft.Extensions.Hosting.csproj -c Release -p:Version=${{ steps.get_version.outputs.VERSION }} --no-restore
 
       - name: Find and push NuGet package
         run: |
